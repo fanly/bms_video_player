@@ -34,5 +34,10 @@ android {
 }
 
 dependencies {
-    implementation 'cn.jzvd:jiaozivideoplayer:7.0_preview'
+    implementation 'com.shuyu:gsyVideoPlayer-java:7.0.0-beta1'
+
+    //是否需要ExoPlayer模式
+    implementation 'com.shuyu:GSYVideoPlayer-exo2:7.0.0-beta1'
+    //更多ijk的编码支持
+    implementation 'com.shuyu:gsyVideoPlayer-ex_so:7.0.0-beta1'
 }
