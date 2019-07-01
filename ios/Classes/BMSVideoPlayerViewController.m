@@ -78,6 +78,11 @@
   return true;
 }
 
+- (bool)pause:(NSString*)url {
+  [_videoView jp_pause];
+  return true;
+}
+
 #pragma mark - JPVideoPlayerDelegate
 
 - (BOOL)shouldAutoReplayForURL:(nonnull NSURL *)videoURL {
