@@ -8,21 +8,23 @@ import 'package:flutter/widgets.dart';
 typedef void BmsVideoPlayerCreatedCallback(BmsVideoPlayerController controller);
 
 class BmsVideoPlayerController {
-
   MethodChannel _channel;
-  
+
   BmsVideoPlayerController.init(int id) {
-    _channel =  new MethodChannel('bms_video_player_$id');
+    _channel = new MethodChannel('bms_video_player_$id');
   }
 
   Future<void> loadUrl(String url) async {
     assert(url != null);
     return _channel.invokeMethod('loadUrl', url);
   }
+
+  Future<void> dispose() {
+    return _channel.invokeMethod('dispose');
+  }
 }
 
 class BmsVideoPlayer extends StatefulWidget {
-
   final BmsVideoPlayerCreatedCallback onCreated;
   final x;
   final y;
@@ -40,11 +42,9 @@ class BmsVideoPlayer extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _VideoPlayerState();
-
 }
-  
-class _VideoPlayerState extends State<BmsVideoPlayer> {
 
+class _VideoPlayerState extends State<BmsVideoPlayer> {
   @override
   void initState() {
     super.initState();
@@ -90,7 +90,7 @@ class _VideoPlayerState extends State<BmsVideoPlayer> {
       return AndroidView(
         viewType: 'plugins.bms_video_player/view',
         onPlatformViewCreated: onPlatformViewCreated,
-        creationParams: <String,dynamic>{
+        creationParams: <String, dynamic>{
           "x": widget.x,
           "y": widget.y,
           "width": widget.width,
@@ -102,7 +102,7 @@ class _VideoPlayerState extends State<BmsVideoPlayer> {
       return UiKitView(
         viewType: 'plugins.bms_video_player/view',
         onPlatformViewCreated: onPlatformViewCreated,
-        creationParams: <String,dynamic>{
+        creationParams: <String, dynamic>{
           "x": widget.x,
           "y": widget.y,
           "width": widget.width,
@@ -116,8 +116,8 @@ class _VideoPlayerState extends State<BmsVideoPlayer> {
   Future<void> onPlatformViewCreated(id) async {
     if (widget.onCreated == null) {
       return;
-      }
-    
+    }
+
     widget.onCreated(new BmsVideoPlayerController.init(id));
   }
 }
