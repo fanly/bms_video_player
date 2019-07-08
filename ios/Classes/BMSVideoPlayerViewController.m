@@ -46,7 +46,9 @@
 - (void)onMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([[call method] isEqualToString:@"loadUrl"]) {
     [self onLoadUrl:call result:result];
-  } else {
+  }else if([[call method] isEqualToString:@"dispose"]) {
+    [self dispose];
+  }else {
     result(FlutterMethodNotImplemented);
   }
 }
@@ -78,9 +80,8 @@
   return true;
 }
 
-- (bool)pause:(NSString*)url {
-  [_videoView jp_pause];
-  return true;
+- (void)dispose {
+  [_videoView jp_stopPlay];
 }
 
 #pragma mark - JPVideoPlayerDelegate
