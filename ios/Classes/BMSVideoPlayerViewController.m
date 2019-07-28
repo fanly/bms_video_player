@@ -51,7 +51,7 @@
   }else if([[call method] isEqualToString:@"getTime"]) {
     [self getTime result:result];
   }else if([[call method] isEqualToString:@"seekTime"]) {
-    [self seekTime:call result:result];
+    [self seekTime:call];
   }else {
     result(FlutterMethodNotImplemented);
   }
