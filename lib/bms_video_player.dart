@@ -22,6 +22,15 @@ class BmsVideoPlayerController {
   Future<void> dispose() {
     return _channel.invokeMethod('dispose');
   }
+
+  Future<void> seekTime(){
+    return _channel.invokeMethod('seekTime');
+  }
+
+  Future<int> getTime(){
+    return _channel.invokeMethod('getTime');
+  }
+
 }
 
 class BmsVideoPlayer extends StatefulWidget {
