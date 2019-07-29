@@ -48,10 +48,10 @@
     [self onLoadUrl:call result:result];
   }else if([[call method] isEqualToString:@"dispose"]) {
     [self dispose];
-  }else if([[call method] isEqualToString:@"getTime"]) {
-    [self getTime result:result];
-  }else if([[call method] isEqualToString:@"seekTime"]) {
-    [self seekTime:call];
+//  }else if([[call method] isEqualToString:@"getTime"]) {
+//    [self getTime result:result];
+//  }else if([[call method] isEqualToString:@"seekTime"]) {
+//    [self seekTime:call];
   }else {
     result(FlutterMethodNotImplemented);
   }
@@ -88,13 +88,13 @@
   [_videoView jp_stopPlay];
 }
 
-- (int)getTime{
-   return [_videoView jp_elapsedSeconds];
-}
-
-- (void)seekTime:(NSUInteger)seconds{
-   [_videoView jp_seekToTime:seconds]
-}
+//- (int)getTime{
+//   return [_videoView jp_elapsedSeconds];
+//}
+//
+//- (void)seekTime:(NSUInteger)seconds{
+//   [_videoView jp_seekToTime:seconds]
+//}
 
 #pragma mark - JPVideoPlayerDelegate
 
