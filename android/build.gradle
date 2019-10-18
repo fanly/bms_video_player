@@ -25,7 +25,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 23
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
@@ -34,10 +34,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.shuyu:gsyVideoPlayer-java:7.0.0-beta1'
+    implementation 'com.shuyu:GSYVideoPlayer:7.1.1'
 
-    //是否需要ExoPlayer模式
-    implementation 'com.shuyu:GSYVideoPlayer-exo2:7.0.0-beta1'
-    //更多ijk的编码支持
-    implementation 'com.shuyu:gsyVideoPlayer-ex_so:7.0.0-beta1'
+    implementation 'com.shuyu:gsyVideoPlayer-java:7.1.1'
+//是否需要ExoPlayer模式
+    implementation 'com.shuyu:GSYVideoPlayer-exo2:7.1.1'
 }
